@@ -1,4 +1,7 @@
-h1 Hello #{name}
-a(href='/users') Users List
+extends ./layouts/common.pug
 
-img(src="./images/codersX.png", alt="img")
+block content
+    h1 Hello #{name}
+    a(href='/users') Users List
+
+    img(src="./images/codersX.png", alt="img")
