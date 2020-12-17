@@ -4,8 +4,12 @@ block content
     h1 Create User
 
     form(action="/users/create", method="POST")
-        label Name
-        input(name="name", type="text")
-        br
-
-        button Create
+        .form-group.mb-2
+            label.me-2(for="name") Name
+            input#name.form-control(name="name", type="text")
+            
+        .form-group.mb-2
+            label.me-2(for="phone") Phone
+            input#phone.form-control(name="name", type="text")
+            
+        button.btn.btn-primary.ms-1 Create
