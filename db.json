@@ -1,26 +1,11 @@
 {
   "users": [
     {
-      "id": "abc",
-      "name": "Vũ Ngọc Vân"
-    },
-    {
-      "id": "dfg",
-      "name": "Nguyễn Ngọc Hiệp"
-    },
-    {
-      "name": "Đặng Xuân Hợi",
-      "id": "lqeaVxutI"
-    },
-    {
-      "name": "Nguyễn Thanh Tùng",
-      "phone": "012345",
-      "id": "HJ0F9c3o0"
-    },
-    {
-      "name": "Bùi Hồng Thái",
-      "phone": "056789",
-      "id": "8rK8IVrF5"
+      "name": "Vũ Ngọc Vân",
+      "phone": "0934281892",
+      "email": "vungoc.van.574@gmail.com",
+      "password": "123456",
+      "id": "BNfIQE78t"
     }
   ]
 }

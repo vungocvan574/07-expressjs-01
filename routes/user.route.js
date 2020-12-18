@@ -1,14 +1,13 @@
-const { Router } = require('express')
 var express = require('express');
 
-// var db = require('../db');
 //include controller
 var controller = require('../controller/user.controller')
 var validate = require('../validate/user.validate');
+var authMiddleware = require('../middlewares/auth.middleware')
 
 var router = express.Router();
 
-router.get('/', controller.index);
+router.get('/', authMiddleware.authRequire, controller.index);
 
 // router.get('/cookie', function(req, res, next) {
 //     res.cookie('user-id', 12345);

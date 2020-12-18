@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser')
 var port = 3000;
 
 var userRoutes = require('./routes/user.route');
+var authRoutes = require('./routes/auth.route');
+
+var authMiddleware = require('./middlewares/auth.middleware')
 
 var app = express();
 
@@ -26,7 +29,8 @@ app.get('/', function(req, res) {
 
 
 //Doan lenh cut
-app.use('/users', userRoutes);
+app.use('/users', authMiddleware.authRequire, userRoutes);
+app.use('/auth', authRoutes);
 
 app.listen(port, function() {
     console.log('Server listening on port ' + port);

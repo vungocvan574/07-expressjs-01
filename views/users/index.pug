@@ -4,6 +4,7 @@ block content
     h1
         span.me-3 Users
         a.btn.btn-primary(href="/users/create") Sign up
+        a.btn.btn-primary.ms-2(href="/auth/login") Login
 
     .d-flex.align-items-center
 
@@ -15,10 +16,12 @@ block content
         tr
             th Name
             th Phone
+            th email
             th Actions
         each user in users
             tr
                 td= user.name
                 td= user.phone
+                td= user.email
                 td
                     a.btn.btn-light(href='/users/' + user.id) View
