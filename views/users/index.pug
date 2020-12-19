@@ -15,13 +15,13 @@ block content
     table.table
         tr
             th Name
-            th Phone
             th email
+            th Phone
             th Actions
         each user in users
             tr
                 td= user.name
-                td= user.phone
                 td= user.email
+                td= user.phone
                 td
                     a.btn.btn-light(href='/users/' + user.id) View
