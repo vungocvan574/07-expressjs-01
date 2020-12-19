@@ -1,5 +1,5 @@
 var express = require('express');
-var multer = require('multer');
+var multer = require('multer')
 
 //include controller
 var controller = require('../controller/user.controller');

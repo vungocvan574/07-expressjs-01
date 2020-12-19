@@ -7,7 +7,7 @@ block content
         each error in errors
             .alert.alert-danger(role='alert')= error
 
-    form(action="/users/create", method="POST")
+    form(action="/users/create", method="POST" enctype="multipart/form-data")
         .form-group.mb-2
             label.me-2(for="name") Name
             input#name.form-control(name="name", type="text", value=values ? values.name:"")
