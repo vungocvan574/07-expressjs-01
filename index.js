@@ -8,8 +8,10 @@ var port = 3000;
 var userRoutes = require('./routes/user.route');
 var productRoutes = require('./routes/product.route');
 var authRoutes = require('./routes/auth.route');
+var cartRoutes = require("./routes/cart.route");
 
 var authMiddleware = require('./middlewares/auth.middleware')
+var sessionMiddleware = require("./middlewares/session.middleware");
 
 var app = express();
 
@@ -19,6 +21,7 @@ app.set('views', './views');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser('process.env.SESSION_SECRET'));
+app.use(sessionMiddleware);
 
 app.use(express.static('./public'))
 
@@ -32,7 +35,8 @@ app.get('/', function(req, res) {
 //Doan lenh cut
 app.use('/users', authMiddleware.authRequire, userRoutes);
 app.use('/products', authMiddleware.authRequire, productRoutes);
-app.use('/auth', authRoutes);
+app.use("/auth", authRoutes);
+app.use("/cart", cartRoutes);
 
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
