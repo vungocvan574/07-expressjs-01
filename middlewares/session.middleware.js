@@ -14,7 +14,5 @@ module.exports = function(req, res, next) {
             id: sessionId
         }).write();
     };
-
-
     next(); //Neu co roi thi next
 }

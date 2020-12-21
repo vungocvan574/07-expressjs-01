@@ -1,16 +1,17 @@
 //req.query
 require('dotenv').config();
 var express = require('express');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
 
 var port = 3000;
 
 var userRoutes = require('./routes/user.route');
 var productRoutes = require('./routes/product.route');
 var authRoutes = require('./routes/auth.route');
-var cartRoutes = require("./routes/cart.route");
+var cartRoutes = require('./routes/cart.route');
+var transferRoutes = require('./routes/transfer.route');
 
-var authMiddleware = require('./middlewares/auth.middleware')
+var authMiddleware = require('./middlewares/auth.middleware');
 var sessionMiddleware = require("./middlewares/session.middleware");
 
 var app = express();
@@ -35,8 +36,9 @@ app.get('/', function(req, res) {
 //Doan lenh cut
 app.use('/users', authMiddleware.authRequire, userRoutes);
 app.use('/products', authMiddleware.authRequire, productRoutes);
-app.use("/auth", authRoutes);
-app.use("/cart", cartRoutes);
+app.use('/transfer', authMiddleware.authRequire, transferRoutes);
+app.use('/auth', authRoutes);
+app.use('/cart', cartRoutes);
 
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
