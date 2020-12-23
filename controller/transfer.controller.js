@@ -11,10 +11,9 @@ module.exports.postCreate = function(req, res, next) {
     var data = {
         id: shortId.generate(),
         user: req.signedCookies.userId,
-        account: req.body.accountId,
+        accountId: req.body.accountId,
         amount: parseInt(req.body.amount)
     };
-
 
     db.get('transfer').push(data).write();
     res.render('transfer/create');

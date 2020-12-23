@@ -10,6 +10,7 @@ var router = express.Router();
 router.get('/create', controller.create);
 
 router.post('/create',
+    validate.postCreate,
     controller.postCreate
 );
 
