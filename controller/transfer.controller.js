@@ -3,7 +3,9 @@ var shortId = require('shortId');
 const { use } = require('../routes/user.route');
 
 module.exports.create = function(req, res, next) {
-    res.render('transfer/create');
+    res.render('transfer/create', {
+        csrfToken: req.csrfToken()
+    });
     next();
 };
 

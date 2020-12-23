@@ -2,6 +2,7 @@
 require('dotenv').config();
 var express = require('express');
 var cookieParser = require('cookie-parser');
+var csurf = require('csurf');
 
 var port = 3000;
 
@@ -23,6 +24,7 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser('process.env.SESSION_SECRET'));
 app.use(sessionMiddleware);
+app.use(csurf());
 
 app.use(express.static('./public'))
 
